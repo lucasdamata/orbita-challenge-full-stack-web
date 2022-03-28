@@ -36,6 +36,8 @@ namespace UserAPI
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<RegisterService, RegisterService>();
             services.AddScoped<LoginService, LoginService>();
+            services.AddScoped<LogoutService, LogoutService>();
+            services.AddScoped<TokenService, TokenService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

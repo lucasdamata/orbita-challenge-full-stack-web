@@ -17,11 +17,11 @@ namespace UserAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Singnin(LoginRequest request)
+        public IActionResult Signin(LoginRequest request)
         {
-            Result result = _loginService.Singnin(request);
-            if (result.IsFailed) return Unauthorized();
-            return Ok();
+            Result result = _loginService.SignIn(request);
+            if (result.IsFailed) return Unauthorized(result.Errors);
+            return Ok(result.Successes);
         }
     }
 }
