@@ -1,11 +1,9 @@
-﻿using AutoMapper;
-using backend.Data;
-using backend.Data.Dtos;
+﻿using backend.Data.Dtos;
 using backend.Models;
+using backend.Services;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace backend.Controllers
 {
@@ -13,68 +11,45 @@ namespace backend.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private StudentContext _context;
-        private IMapper _mapper;
+        private StudentService _studentService;
 
-        public StudentController(StudentContext context , IMapper mapper)
+        public StudentController(StudentService studentService)
         {
-            _context = context;
-            _mapper = mapper;
+            _studentService = studentService;
         }
 
         [HttpPost]
-        public IActionResult Create(CreateStudentDTO studentDto)
+        public IActionResult Store(CreateStudentDTO studentDto)
         {
-            Student student = _mapper.Map<Student>(studentDto);
-            if(
-                _context.Students.FirstOrDefault(students => students.Ra == studentDto.Ra) == null &&
-                _context.Students.FirstOrDefault(students => students.Cpf == studentDto.Cpf) == null
-             )
-            {
-                _context.Students.Add(student);
-                _context.SaveChanges();
-                return CreatedAtAction(nameof(FindById), new { Id = student.Id }, student);
-            }
-            return BadRequest("Error, student with RA or CPF already registered");
+            Student student = _studentService.Create(studentDto);
+            return CreatedAtAction(nameof(Show), new { Id = student.Id }, student);
         }
 
         [HttpGet]
-        public IEnumerable<Student> FindAll()
+        public IEnumerable<Student> Index()
         {
-            return _context.Students;
+            return _studentService.FindAll();
         }
 
         [HttpGet("{id}")]
-        public IActionResult FindById(int id)
+        public IActionResult Show(int id)
         {
-            Student student = _context.Students.FirstOrDefault(students => students.Id == id);
+            Student student = _studentService.FindById(id);
             return student != null ? Ok(student) : NotFound();
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] UpdateStudentDTO studentDTO)
         {
-            Student student = _context.Students.FirstOrDefault(student => student.Id == id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-            _mapper.Map(studentDTO, student);
-            _context.SaveChanges();
-            return NoContent();
+            Result student = _studentService.Update(id, studentDTO);
+            return student.IsFailed ? NotFound() : NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            Student student = _context.Students.FirstOrDefault(student => student.Id == id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-            _context.Remove(student);
-            _context.SaveChanges();
-            return NoContent();
+            Result student = _studentService.Delete(id);
+            return student.IsFailed ? NotFound() : NoContent();
         }
     }
 }
