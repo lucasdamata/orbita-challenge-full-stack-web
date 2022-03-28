@@ -1,4 +1,5 @@
 using backend.Data;
+using backend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,7 @@ namespace backend
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
             });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddTransient<StudentService, StudentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

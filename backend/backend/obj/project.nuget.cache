@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KIwcIN/gVOnbCEd8gRRloVGTYZvNWMY+1SUL1LUL/N69x8Rz4zgAAUHAJ0tLF2QyX6FJMtI5b86+kioa6W8SJg==",
+  "dgSpecHash": "GmYy/oRVGBQl1lGeyiLpevwR/Mf3yB7A8TR4UFBjyxiWVjBsSVkvy/uGLI9tpCCddT8vGl5swv6x1+GzWdX55g==",
   "success": true,
   "projectFilePath": "C:\\grupoa\\orbita-challenge-full-stack-web\\backend\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lucas\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\lucas\\.nuget\\packages\\fluentresults\\2.6.0\\fluentresults.2.6.0.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\lucas\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.15\\microsoft.entityframeworkcore.5.0.15.nupkg.sha512",

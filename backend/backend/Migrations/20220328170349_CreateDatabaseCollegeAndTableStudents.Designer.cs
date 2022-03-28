@@ -9,7 +9,7 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(StudentContext))]
-    [Migration("20220328005048_CreateDatabaseCollegeAndTableStudents")]
+    [Migration("20220328170349_CreateDatabaseCollegeAndTableStudents")]
     partial class CreateDatabaseCollegeAndTableStudents
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
