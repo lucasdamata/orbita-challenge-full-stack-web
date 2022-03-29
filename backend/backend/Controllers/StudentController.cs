@@ -2,6 +2,7 @@
 using backend.Models;
 using backend.Services;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -19,6 +20,7 @@ namespace backend.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Store(CreateStudentDTO studentDto)
         {
             Student student = _studentService.Create(studentDto);
@@ -26,12 +28,14 @@ namespace backend.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<Student> Index()
         {
             return _studentService.FindAll();
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Show(int id)
         {
             Student student = _studentService.FindById(id);
@@ -39,6 +43,7 @@ namespace backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public IActionResult Update(int id, [FromBody] UpdateStudentDTO studentDTO)
         {
             Result student = _studentService.Update(id, studentDTO);
@@ -46,6 +51,7 @@ namespace backend.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             Result student = _studentService.Delete(id);

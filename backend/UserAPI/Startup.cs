@@ -30,14 +30,19 @@ namespace UserAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
+            });
             services.AddDbContext<UserDbContext>(opts => opts.UseNpgsql(Configuration.GetConnectionString("UserConnection")));
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>().AddEntityFrameworkStores<UserDbContext>();
+            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>().AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<RegisterService, RegisterService>();
             services.AddScoped<LoginService, LoginService>();
             services.AddScoped<LogoutService, LogoutService>();
             services.AddScoped<TokenService, TokenService>();
+            services.AddTransient<UserDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +50,8 @@ namespace UserAPI
         {
             if (env.IsDevelopment())
             {
-
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
                 app.UseDeveloperExceptionPage();
             }
 
