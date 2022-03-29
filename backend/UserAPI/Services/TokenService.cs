@@ -16,6 +16,7 @@ namespace UserAPI.Services
             {
                 new Claim("username", user.UserName),
                 new Claim("id", user.Id.ToString()),
+                //new Claim(ClaimTypes.Role, role),
 
             };
 
