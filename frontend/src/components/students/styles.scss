@@ -1,0 +1,111 @@
+.container-student {
+  width: calc(100% - 35rem);
+  max-height: 100vh;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 17.4rem;
+
+  .header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+
+    .registerBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 1.10476px 2.20952px rgba(0, 0, 0, 0.16);
+      color: #fff;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      width: 25.7rem;
+      height: 6rem;
+      background: var(--green-800);
+      border-radius: 3rem;
+      transition: 0.5s;
+    }
+    .registerBtn:hover {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+.table {
+  color: #fff;
+  height: 10rem;
+
+  .table-head {
+    text-align: center;
+    .table-head--title {
+      font-size: 1.5rem;
+      text-align: center;
+      background: var(--green-800);
+
+    }
+  } 
+}
+
+.table-body {
+  overflow: auto;
+}
+
+.model-register {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  position: absolute;
+  right: 0;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-800);
+  color: #fff;
+  text-align: center;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+.btnSave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 15rem;
+  background: var(--green-800);
+  border-radius: 3rem;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0px 1.10476px 2.20952px rgba(0, 0, 0, 0.16);
+  margin-right: 1rem;
+}
+.btnClose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  width: 15rem;
+  background: var(--red-500);
+  border-radius: 3rem;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0px 1.10476px 2.20952px rgba(0, 0, 0, 0.16);
+}
