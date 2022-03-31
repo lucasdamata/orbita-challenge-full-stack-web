@@ -18,11 +18,14 @@ export default {
   createStudent(params :CreateStudent) {
     return customAxios().post(`${helpers.API_STUDENT}`, params)
   },
-  getAllStudents() {
-    return customAxios().get(`${helpers.API_STUDENT}`)
+  async getAllStudents() {
+    const response = await customAxios().get(`${helpers.API_STUDENT}`)
+    return response
+
   },
-  getStudentById(id: Number) {
-    return customAxios().get(`${helpers.API_STUDENT}/${id}`)
+  async getStudentById(id: Number) {
+    const response = await customAxios().get(`${helpers.API_STUDENT}/${id}`)
+    return response
   },
   updateSudentById(id: Number, params: UpdateStudent) {
     return customAxios().put(`${helpers.API_STUDENT}/${id}`, params)

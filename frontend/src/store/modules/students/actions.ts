@@ -25,8 +25,9 @@ export default {
         return Promise.reject(err.response)
       })
   },
-  actionGetAllStudents() {
-    return student.getAllStudents
+  async actionGetAllStudents() {
+    const response = await student.getAllStudents()
+    return response.data
   },
   actionGetStudentByUserId(_: any, id: Number) {
     return student.getStudentById(id)

@@ -1,7 +1,19 @@
 <template>
-  <h1>academic</h1>
+  <div class="container-admin">
+    <Menu />
+    <Student />
+  </div>
 </template>
 
 <style lang="scss" src="./styles.scss"></style>
 
-<script lang="ts" src="./script.ts"></script>
+<script lang="ts">
+  import Menu from '../../../components/menu/index.vue'
+  import Student from '../../../components/students/index.vue'
+  export default {
+    components: {
+      Menu,
+      Student
+    }
+  }
+</script>

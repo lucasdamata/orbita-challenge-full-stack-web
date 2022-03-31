@@ -16,11 +16,10 @@
         ></v-text-field>
 
         <v-btn
-          color="success"
-          class="mr-4"
+          class="buttonLogin"
           @click="login()"
         >
-          Validate
+          Login
         </v-btn>
       </v-form>
     </div>
