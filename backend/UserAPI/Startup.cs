@@ -43,6 +43,17 @@ namespace UserAPI
             services.AddScoped<LogoutService, LogoutService>();
             services.AddScoped<TokenService, TokenService>();
             services.AddTransient<UserDbContext>();
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("MyPolicy", builder =>
+                {
+                    builder
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader();
+
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +65,8 @@ namespace UserAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
 
