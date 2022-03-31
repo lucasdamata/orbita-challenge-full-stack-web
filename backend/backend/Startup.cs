@@ -61,6 +61,17 @@ namespace backend
             });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<StudentService, StudentService>();
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("MyPolicy", builder =>
+                {
+                    builder
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader();
+                    
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +83,8 @@ namespace backend
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
             }
+
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
 
