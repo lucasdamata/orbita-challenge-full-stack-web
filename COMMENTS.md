@@ -99,16 +99,16 @@ Realizada a divisão de responsabilidades na criação de componetes, paginas, c
 
 ### Backend
 
-- Adição de regras de usuário adminstrador e padrão
+- Adição de regras de usuário administrador e padrão
 - Adicionar testes automatizados
-- Melhorar a qualidade do JWT (adinar regras)
+- Melhorar a qualidade do JWT (adicionar regras)
 - Publicação e integração contínua
 
 ### Frontend
 
-- Separar paginas em mais componentes
+- Separar páginas em mais componentes
 - Adicionar testes em jest e cypress
-- Melhoria em tipagem de resquests e response
+- Melhoria em tipagem de resquest e response
 - Adicionar pagina de cadastro de usuários
-- Melhorar performance de logout monitorando expiração do token
+- Melhorar performance de logout, monitorando expiração do token
 - Publicação e hospedagem
