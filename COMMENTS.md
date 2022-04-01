@@ -92,3 +92,23 @@ Realizada a divisão de responsabilidades na criação de componetes, paginas, c
 ![Resultados 3](assets/resultados3.png)
 
 ![Resultados 4](assets/resultados4.png)
+
+---
+
+## Melhorias
+
+### Backend
+
+- Adição de regras de usuário adminstrador e padrão
+- Adicionar testes automatizados
+- Melhorar a qualidade do JWT (adinar regras)
+- Publicação e integração contínua
+
+### Frontend
+
+- Separar paginas em mais componentes
+- Adicionar testes em jest e cypress
+- Melhoria em tipagem de resquests e response
+- Adicionar pagina de cadastro de usuários
+- Melhorar performance de logout monitorando expiração do token
+- Publicação e hospedagem
