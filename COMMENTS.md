@@ -111,4 +111,6 @@ Realizada a divisão de responsabilidades na criação de componetes, paginas, c
 - Melhoria em tipagem de resquest e response
 - Adicionar pagina de cadastro de usuários
 - Melhorar performance de logout, monitorando expiração do token
+- Adicionar toda interface responsiva para mobile
+- Implementar temas (dark light)
 - Publicação e hospedagem
